@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
+import useLocalStorage from '../../hooks/useLocalStorage';
 import AppUI from './AppUI';
 
-const defaultTodos = [
+/*const defaultTodos = [
   { id:1, text: 'Cortar cebolla', completed: false },
   { id:2, text: 'Tomar el curso de intro a React de Platzi', completed: false },
   { id:3, text: 'Llorar con la llorona', completed: true },
   { id:4, text: 'Actualizar la BD de eventos', completed: true },
-];
+];*/
 
 function App() {
-  const [todos, setTodos] = useState(defaultTodos);
+  
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  
   const [searchValue, setSearchValue] = useState('')
 
   const completedTodos = todos.filter(todo=>!!todo.completed).length;
@@ -27,24 +30,19 @@ function App() {
     })
   }
 
+  
   const toggleCompleteTodo = (todoId) => {
     const todoIndex = todos.findIndex(todo => todo.id === todoId);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
   const deleteTodo = (todoId) => {
-    /* Mi variante
-    const todoFiltered = todos.filter(todo=>{
-      return todo.id !== todoId;
-    })
-    setTodos(todoFiltered);
-    */
     const todoIndex = todos.findIndex(todo => todo.id === todoId);
     const newTodos = [...todos];
     newTodos.splice(todoIndex,1);
-    setTodos(newTodos);    
+    saveTodos(newTodos);    
   }
 
   return (

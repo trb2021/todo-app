@@ -8,6 +8,8 @@ import CreateTodoButton from '../CreateTodoButton/CreateTodoButton';
 
 
 const AppUI = ({
+      loading,
+      error,
       totalTodos, 
       completedTodos,
       searchValue,
@@ -21,6 +23,10 @@ const AppUI = ({
       <TodoCounter total={totalTodos} completed={completedTodos}/>
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
       <TodoList>
+        {error && <p>Huno un error, lo sentimos...</p>}
+        {loading && <p>Estamos cargando, no desesperes...</p>}
+        {(!loading && !searchedTodos.length) && <p>Crea tu primer ToDo...</p>}
+
         {searchedTodos.map(todo=>(
           <TodoItem key={todo.id} 
                     id={todo.id} 

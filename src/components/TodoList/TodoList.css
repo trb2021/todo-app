@@ -1,5 +1,21 @@
-ul {
-    margin: 0;
-    padding: 0 0 56px 0;
-    list-style: none;
-  }
+/* TODOS CONTAINER */
+.todos .card:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.todos > * + * {
+  border-top: 0.2rem solid var(--clr-gb-6);
+}
+
+.item {
+  flex: 1;
+  color: var(--clr-gb-2);
+}
+
+.item:hover {
+  color: var(--clr-gb-1);
+}
+
+body.light .todos {
+  box-shadow: 0 0 2rem 0.4rem var(--clr-box-shadow);
+}

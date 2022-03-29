@@ -13,8 +13,8 @@ function TodoSearch () {
     
     return (
         <>
-            <input className="TodoSearch" 
-            placeholder="Cebolla"
+            <input className="TodoSearch card" 
+            placeholder="Que tarea quieres buscar..."
             value={searchValue} 
             onChange={onSearchValueChange}
             />

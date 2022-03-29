@@ -7,6 +7,8 @@ import CreateTodoButton from '../CreateTodoButton/CreateTodoButton';
 import { TodoContext } from "../../context/TodoContext";
 import Modal from "../Modal/ModalAddTodo";
 import TodoForm from "../TodoForm/TodoForm";
+import TodoHeader from "../TodoHeader/TodoHeader";
+import './AppUI.css';
 
 
 function AppUI () {
@@ -23,7 +25,7 @@ function AppUI () {
 
     return(
         <>
-      <TodoCounter/>
+      <TodoHeader/>
       <TodoSearch/>
       <TodoList>
         {error && <p>Huno un error, lo sentimos...</p>}
@@ -40,7 +42,7 @@ function AppUI () {
                     />
         ))}
       </TodoList>
-
+      <TodoCounter/>
        {!!openModal && (
          <Modal>
           <TodoForm />

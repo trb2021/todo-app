@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Todo Machine App | App del Curso de Introducción a React.JS de Platzi
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

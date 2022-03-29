@@ -3,7 +3,7 @@ import './TodoItem.css';
 
 function TodoItem (itemProps) {
     return (
-        <li className="TodoItem">
+        <li className="card">
       <span className={`Icon Icon-check 
             ${itemProps.completed && 
             'Icon-check--active'}`     

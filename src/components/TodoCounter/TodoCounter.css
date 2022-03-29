@@ -1,6 +1,44 @@
 .TodoCounter {
-    font-size: 24px;
-    text-align: center;
-    margin: 0;
-    padding: 48px;
+    border-radius: 0 0 0.5rem 0.5rem;
+    border-top: 0.2rem solid var(--clr-gb-6);
+    font-size: calc(var(--base-font) - 0.3rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;  
   }
+
+  /* Todo.TodoCounter CONTAINER */
+
+.TodoCounter * {
+  color: var(--clr-gb-4);
+}
+
+body.light .TodoCounter {
+  box-shadow: 0 1rem 2rem -0.4rem var(--clr-box-shadow);
+}
+
+/* CORNERS */
+
+.TodoCounter .corner:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.TodoCounter .corner button:hover {
+  color: var(--clr-primary);
+}
+
+/* FILTER BUTTONS */
+
+.TodoCounter .filter {
+  display: flex;
+  justify-content: space-between;
+  font-weight: var(--fw-bold);
+}
+
+.TodoCounter .filter *:hover {
+  color: var(--clr-primary);
+}
+
+.TodoCounter .filter .on {
+  color: var(--clr-blue);
+}

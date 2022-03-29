@@ -17,7 +17,7 @@ Además de que podrá ver los errores que se generen en la consola.
 
 Launches the  in the interactive  mode.\
 Inicia el test runner en el modo watch interactivo.\
-Consulte la sección sobre [ejecutar pruebas] (https://facebook.github.io/create-react-app/docs/running-tests) para obtener más información.
+Consulte la sección sobre [ejecutar pruebas](https://facebook.github.io/create-react-app/docs/running-tests) para obtener más información.
 
 ### `npm run build`
 

@@ -1,5 +1,6 @@
 import React from "react";
 import './TodoItem.css';
+import iconDelete from '../../assets/images/icon-cross.svg';
 
 function TodoItem (itemProps) {
     return (
@@ -15,9 +16,9 @@ function TodoItem (itemProps) {
       <p className={`TodoItem-p ${itemProps.completed && 'TodoItem-p--complete'}`}>
         {itemProps.text}
       </p>
-      <span className="Icon Icon-delete" onClick={itemProps.onDelete}>
-        X
-      </span>
+      <button className="clear" onClick={itemProps.onDelete}>
+        <img src={iconDelete} alt="Eliminar" />
+      </button>
     </li>
     );
 }

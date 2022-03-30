@@ -6,7 +6,7 @@ function TodoCounter () {
     const {totalTodos, completedTodos} = useContext(TodoContext);
     return (
         <div className="card TodoCounter">
-            <p>Has completado {completedTodos} de {totalTodos} TODOs</p>
+            <p className="corner">Has completado {completedTodos} de {totalTodos} TODOs</p>
         </div>
     )
 }

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import TodoCounter from '../TodoCounter/TodoCounter';
 import TodoSearch from '../TodoSearch/TodoSearch';
 import TodoList from '../TodoList/TodoList';
 import TodoItem from '../TodoItem/TodoItem';
@@ -9,6 +8,7 @@ import Modal from "../Modal/ModalAddTodo";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoHeader from "../TodoHeader/TodoHeader";
 import './AppUI.css';
+import TodoFooter from "../TodoFooter/TodoFooter";
 
 
 function AppUI () {
@@ -24,7 +24,7 @@ function AppUI () {
 } = useContext(TodoContext);
 
     return(
-        <>
+      <>
       <TodoHeader/>
       <TodoSearch/>
       <TodoList>
@@ -42,7 +42,7 @@ function AppUI () {
                     />
         ))}
       </TodoList>
-      <TodoCounter/>
+      <TodoFooter/>
        {!!openModal && (
          <Modal>
           <TodoForm />
@@ -50,7 +50,7 @@ function AppUI () {
        )}
 
       <CreateTodoButton setOpenModal={setOpenModal} />
-    </>
+    </>  
     );
 }
 

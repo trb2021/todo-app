@@ -15,6 +15,8 @@ function TodoProvider (props) {
       const [searchValue, setSearchValue] = useState('')
 
       const [openModal, setOpenModal] = useState(false);
+
+      const [darkMode, setDarkMode] = useState(true);
     
       const completedTodos = todos.filter(todo=>!!todo.completed).length;
       const totalTodos = todos.length;
@@ -31,7 +33,11 @@ function TodoProvider (props) {
         })
       }
     
-      
+      const toggleDarkMode = () => {
+        document.querySelector("body").classList.toggle("light");
+        setDarkMode(!darkMode);
+      }
+
       const toggleCompleteTodo = (todoId) => {
         const todoIndex = todos.findIndex(todo => todo.id === todoId);
         const newTodos = [...todos];
@@ -70,10 +76,12 @@ function TodoProvider (props) {
             setSearchValue,
             searchedTodos,
             toggleCompleteTodo,
+            toggleDarkMode,
             deleteTodo,
             openModal,
             setOpenModal,
-            addTodo
+            addTodo,
+            darkMode
         }}>
             {props.children}
         </TodoContext.Provider>

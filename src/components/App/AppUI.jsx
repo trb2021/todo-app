@@ -17,6 +17,7 @@ function AppUI () {
     loading,
     error,    
     searchedTodos,
+    filteredTodos,
     toggleCompleteTodo,
     deleteTodo,
     openModal,
@@ -28,11 +29,11 @@ function AppUI () {
       <TodoHeader/>
       <TodoSearch/>
       <TodoList>
-        {error && <p>Huno un error, lo sentimos...</p>}
+        {error && <p>Hubo un error, lo sentimos...</p>}
         {loading && <p>Estamos cargando, no desesperes...</p>}
         {(!loading && !searchedTodos.length) && <p>Crea tu primer ToDo...</p>}
 
-        {searchedTodos.map(todo=>(
+        {filteredTodos.map(todo=>(
           <TodoItem key={todo.id} 
                     id={todo.id} 
                     text={todo.text} 

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import TodoCounter from '../TodoCounter/TodoCounter';
 import TodoSearch from '../TodoSearch/TodoSearch';
 import TodoList from '../TodoList/TodoList';
 import TodoItem from '../TodoItem/TodoItem';
@@ -9,6 +8,7 @@ import Modal from "../Modal/ModalAddTodo";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoHeader from "../TodoHeader/TodoHeader";
 import './AppUI.css';
+import TodoFooter from "../TodoFooter/TodoFooter";
 
 
 function AppUI () {
@@ -17,6 +17,7 @@ function AppUI () {
     loading,
     error,    
     searchedTodos,
+    filteredTodos,
     toggleCompleteTodo,
     deleteTodo,
     openModal,
@@ -24,15 +25,15 @@ function AppUI () {
 } = useContext(TodoContext);
 
     return(
-        <>
+      <>
       <TodoHeader/>
       <TodoSearch/>
       <TodoList>
-        {error && <p>Huno un error, lo sentimos...</p>}
+        {error && <p>Hubo un error, lo sentimos...</p>}
         {loading && <p>Estamos cargando, no desesperes...</p>}
         {(!loading && !searchedTodos.length) && <p>Crea tu primer ToDo...</p>}
 
-        {searchedTodos.map(todo=>(
+        {filteredTodos.map(todo=>(
           <TodoItem key={todo.id} 
                     id={todo.id} 
                     text={todo.text} 
@@ -42,7 +43,7 @@ function AppUI () {
                     />
         ))}
       </TodoList>
-      <TodoCounter/>
+      <TodoFooter/>
        {!!openModal && (
          <Modal>
           <TodoForm />
@@ -50,7 +51,7 @@ function AppUI () {
        )}
 
       <CreateTodoButton setOpenModal={setOpenModal} />
-    </>
+    </>  
     );
 }
 

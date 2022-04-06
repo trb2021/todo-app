@@ -10,28 +10,50 @@ function TodoProvider (props) {
         saveItem: saveTodos,
         loading,
         error,
-      } = useLocalStorage('TODOS_V1', []);
+      } = useLocalStorage('TODOS_V1', []);      
       
       const [searchValue, setSearchValue] = useState('')
 
       const [openModal, setOpenModal] = useState(false);
+
+      const [darkMode, setDarkMode] = useState(true);
+
+      const [filterTodo, setFilterTodo] = useState('all');
     
       const completedTodos = todos.filter(todo=>!!todo.completed).length;
       const totalTodos = todos.length;
     
       let searchedTodos = [];
+
+      let filteredTodos = [];
     
       if (!searchValue.length>=1) {
         searchedTodos = todos;
       } else {
-        searchedTodos = todos.filter(todo=>{
+          searchedTodos = todos.filter(todo=>{
           const todoText = todo.text.toLowerCase();
           const searchText = searchValue.toLowerCase();
           return todoText.includes(searchText);
         })
       }
     
-      
+      if (filterTodo === 'all') filteredTodos = searchedTodos; 
+      else
+      if (filterTodo === 'active') {
+        filteredTodos = searchedTodos.filter(todo => {
+          return !todo.completed;
+        }); 
+      } else {
+        filteredTodos = searchedTodos.filter(todo => {
+          return todo.completed;
+        });
+      }
+
+      const toggleDarkMode = () => {
+        document.querySelector("body").classList.toggle("light");
+        setDarkMode(!darkMode);
+      }
+
       const toggleCompleteTodo = (todoId) => {
         const todoIndex = todos.findIndex(todo => todo.id === todoId);
         const newTodos = [...todos];
@@ -60,6 +82,11 @@ function TodoProvider (props) {
         saveTodos(newTodos);    
       }
 
+      const deleteCompletedTodos = () => {
+        const activeTodos = todos.filter(todo => !todo.completed);
+        saveTodos(activeTodos);
+      }
+
       return (
         <TodoContext.Provider value = {{
             loading,
@@ -69,11 +96,17 @@ function TodoProvider (props) {
             searchValue,
             setSearchValue,
             searchedTodos,
+            filterTodo,
+            setFilterTodo,
+            filteredTodos,
             toggleCompleteTodo,
+            toggleDarkMode,
             deleteTodo,
+            deleteCompletedTodos,
             openModal,
             setOpenModal,
-            addTodo
+            addTodo,
+            darkMode
         }}>
             {props.children}
         </TodoContext.Provider>

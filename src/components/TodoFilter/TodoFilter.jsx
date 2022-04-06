@@ -4,7 +4,7 @@ import './TodoFilter.css';
 
 function TodoFilter() {
   
-  const {setFilterTodo} = useContext(TodoContext);
+  const {setFilterTodo, deleteCompletedTodos} = useContext(TodoContext);
 
   const onClickHandler = (element) => {
     setFilterTodo(element.target.id);
@@ -20,7 +20,7 @@ function TodoFilter() {
             <button id="completed" onClick={onClickHandler}>Completados</button>
           </div>
           <div className="corner">
-            <button id="clear-completed">Borrar completados</button>
+            <button id="clear-completed" onClick={deleteCompletedTodos}>Borrar completados</button>
           </div>
         </>
     );

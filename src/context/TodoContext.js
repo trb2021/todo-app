@@ -82,6 +82,11 @@ function TodoProvider (props) {
         saveTodos(newTodos);    
       }
 
+      const deleteCompletedTodos = () => {
+        const activeTodos = todos.filter(todo => !todo.completed);
+        saveTodos(activeTodos);
+      }
+
       return (
         <TodoContext.Provider value = {{
             loading,
@@ -97,6 +102,7 @@ function TodoProvider (props) {
             toggleCompleteTodo,
             toggleDarkMode,
             deleteTodo,
+            deleteCompletedTodos,
             openModal,
             setOpenModal,
             addTodo,

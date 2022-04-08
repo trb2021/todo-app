@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/trb2021/trb2021.github.io/todo-app/static/css/main.e96737bb.css",
+    "main.js": "/trb2021/trb2021.github.io/todo-app/static/js/main.546ab2c0.js",
+    "static/media/bg-desktop-light.jpg": "/trb2021/trb2021.github.io/todo-app/static/media/bg-desktop-light.4b8b0b8d5d6ddb7e9f27.jpg",
+    "static/media/bg-desktop-dark.jpg": "/trb2021/trb2021.github.io/todo-app/static/media/bg-desktop-dark.4c8cd36b94064689b470.jpg",
+    "index.html": "/trb2021/trb2021.github.io/todo-app/index.html",
+    "static/media/icon-sun.svg": "/trb2021/trb2021.github.io/todo-app/static/media/icon-sun.910b1f9a23741afc341e95653a51f14f.svg",
+    "static/media/icon-moon.svg": "/trb2021/trb2021.github.io/todo-app/static/media/icon-moon.6c03114b495d05f4380b3c544d9afe2a.svg",
+    "static/media/icon-cross.svg": "/trb2021/trb2021.github.io/todo-app/static/media/icon-cross.6ee81d30b75cab19d6f7314624fcc4d6.svg",
+    "main.e96737bb.css.map": "/trb2021/trb2021.github.io/todo-app/static/css/main.e96737bb.css.map",
+    "main.546ab2c0.js.map": "/trb2021/trb2021.github.io/todo-app/static/js/main.546ab2c0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e96737bb.css",
+    "static/js/main.546ab2c0.js"
+  ]
+}

@@ -29,9 +29,9 @@ function AppUI () {
       <TodoHeader/>
       <TodoSearch/>
       <TodoList>
-        {error && <p>Hubo un error, lo sentimos...</p>}
-        {loading && <p>Estamos cargando, no desesperes...</p>}
-        {(!loading && !searchedTodos.length) && <p>Crea tu primer ToDo...</p>}
+        {error && <p className="message">Hubo un error, lo sentimos...</p>}
+        {loading && <p className="message">Estamos cargando, no desesperes...</p>}
+        {(!loading && !searchedTodos.length) && <p className="message">Crea tu primer ToDo...</p>}
 
         {filteredTodos.map(todo=>(
           <TodoItem key={todo.id} 

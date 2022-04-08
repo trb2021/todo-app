@@ -12,3 +12,12 @@ header.card {
     font-weight: 700;
     font-size: calc(var(--base-font) * 2);
   }
+  
+  @media (max-width: 340px) {
+    header.card {
+      align-items: center;
+    }
+    header.card h1 {
+      font-size: calc(var(--base-font) * 1.5);
+    }
+  }

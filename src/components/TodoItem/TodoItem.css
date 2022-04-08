@@ -40,7 +40,7 @@
     left: 12px;
   }
   .Icon-check--active {
-    color: #4caf50;
+    color: var(--clr-blue);
   }
   
   .Icon-delete {

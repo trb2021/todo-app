@@ -18,6 +18,7 @@
     --clr-gb-5: hsl(233, 14%, 35%);
     --clr-gb-6: hsl(235, 19%, 24%);
     --clr-box-shadow: hsl(0, 0%, 0%, 0.1);
+    --clr-message: hsl(0, 0%, 100%);
   }
   
   /* CHANGE CUSTOM PROPERTIES WHEN LIGHT THEME */
@@ -25,6 +26,7 @@
   body.light {
     --img-bg: url("../../assets/images/bg-desktop-light.jpg");
     --clr-primary: hsl(243, 12%, 30%);
+    --clr-message: hsl(0, 0%, 100%);
     --clr-page-bg: hsl(0, 0%, 98%);
     --clr-card-bg: hsl(0, 0%, 100%);
     --clr-gb-1: hsl(240, 8%, 24%);
@@ -68,7 +70,7 @@
     background: var(--clr-page-bg) var(--img-bg) no-repeat 0% 0% / 100vw 30rem;
     padding-top: 8rem;
     width: min(85%, 54rem);
-    margin: auto;
+    margin: auto;    
   }
 
   /* INPUT AND BUTTON */
@@ -104,4 +106,8 @@ label {
     align-items: center;
     padding: 1.9rem 2rem;
     gap: 2rem;
+  }
+
+  .message {
+    color: var(--clr-message);
   }

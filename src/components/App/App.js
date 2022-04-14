@@ -30,7 +30,7 @@ function App() {
       toggleDarkMode,
       searchValue, 
       setSearchValue,
-      addTodo, 
+      addTodo,
       setOpenModal,
     } = useTodos();
 

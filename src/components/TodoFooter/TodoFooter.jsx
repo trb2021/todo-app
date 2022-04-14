@@ -1,13 +1,10 @@
 import React from "react";
-import TodoCounter from "../TodoCounter/TodoCounter";
-import TodoFilter from "../TodoFilter/TodoFilter";
 import './TodoFooter.css';
 
-function TodoFooter() {
+function TodoFooter({ children }) {
     return(
         <div className="TodoFooter card">
-            <TodoCounter/>
-            <TodoFilter/>
+            { children }
         </div>
     );
 }

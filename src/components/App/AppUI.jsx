@@ -9,6 +9,8 @@ import TodoForm from "../TodoForm/TodoForm";
 import TodoHeader from "../TodoHeader/TodoHeader";
 import './AppUI.css';
 import TodoFooter from "../TodoFooter/TodoFooter";
+import TodoCounter from "../TodoCounter/TodoCounter";
+import TodoFilter from "../TodoFilter/TodoFilter";
 
 
 function AppUI () {
@@ -22,11 +24,17 @@ function AppUI () {
     deleteTodo,
     openModal,
     setOpenModal,
+    totalTodos, 
+    completedTodos,
+    setFilterTodo, 
+    deleteCompletedTodos,
+    darkMode, 
+    toggleDarkMode,
 } = useContext(TodoContext);
 
     return(
       <>
-      <TodoHeader/>
+      <TodoHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
       <TodoSearch/>
       <TodoList>
         {error && <p className="message">Hubo un error, lo sentimos...</p>}
@@ -43,7 +51,10 @@ function AppUI () {
                     />
         ))}
       </TodoList>
-      <TodoFooter/>
+      <TodoFooter>
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos}/>
+        <TodoFilter setFilterTodo={setFilterTodo} deleteCompletedTodos={deleteCompletedTodos}/>
+      </TodoFooter>
        {!!openModal && (
          <Modal>
           <TodoForm />

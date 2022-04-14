@@ -1,13 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './TodoHeader.css';
 import iconSun from '../../assets/images/icon-sun.svg';
 import iconMoon from '../../assets/images/icon-moon.svg';
-import  { TodoContext } from '../../context/TodoContext';
 
-function TodoHeader() {
-    
-    const {darkMode, toggleDarkMode} = useContext(TodoContext);
-    
+function TodoHeader({darkMode, toggleDarkMode}) {
     return (
     <header className="card">
       <h1>TODO MACHINE</h1>

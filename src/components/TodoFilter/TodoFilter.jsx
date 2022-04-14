@@ -1,11 +1,7 @@
-import React, { useContext } from "react";
-import { TodoContext } from "../../context/TodoContext";
+import React from "react";
 
-
-function TodoFilter() {
+function TodoFilter({setFilterTodo, deleteCompletedTodos}) {
   
-  const {setFilterTodo, deleteCompletedTodos} = useContext(TodoContext);
-
   const onClickHandler = (element) => {
     setFilterTodo(element.target.id);
     document.querySelector(".on").classList.remove("on");

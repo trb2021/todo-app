@@ -1,9 +1,9 @@
-import { createContext, useState } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useState } from "react";
+import useLocalStorage from "./useLocalStorage";
 
-const TodoContext = createContext();
 
-function TodoProvider (props) {
+
+function useTodos () {
     
     const {
         item: todos, 
@@ -88,7 +88,7 @@ function TodoProvider (props) {
       }
 
       return (
-        <TodoContext.Provider value = {{
+        {
             loading,
             error,
             totalTodos,
@@ -107,10 +107,8 @@ function TodoProvider (props) {
             setOpenModal,
             addTodo,
             darkMode
-        }}>
-            {props.children}
-        </TodoContext.Provider>
+        }
       );
 }
 
-export { TodoContext, TodoProvider };
+export { useTodos };

@@ -14,6 +14,7 @@ import "./App.css";
 import TodosError from '../TodosError/TodosError';
 import TodosLoading from '../TodosLoading/TodosLoading';
 import TodosEmpty from '../TodosEmpty/TodosEmpty';
+import EmptySearchTodos from '../EmptySearchTodos/EmptySearchTodos';
 
 
 function App() {
@@ -42,13 +43,15 @@ function App() {
       <TodoHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode }/>
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
       
-      <TodoList 
+      {/* <TodoList 
         error = {error}
         loading = {loading}
+        totalTodos = {totalTodos}
         filteredTodos = {filteredTodos}
         onError= {()=><TodosError/>}
         onLoading= {()=><TodosLoading/>}
         onEmptyTodos= {()=><TodosEmpty/>}
+        onEmptySearchTodos= {()=><EmptySearchTodos searchText={searchValue}/>}
         render={todo => (
           <TodoItem key={todo.id} 
                     id={todo.id} 
@@ -58,7 +61,28 @@ function App() {
                     onDelete={() => deleteTodo(todo.id)}
                     />
         )}
-      />
+      /> */}
+
+      <TodoList
+        error = {error}
+        loading = {loading}
+        totalTodos = {totalTodos}
+        filteredTodos = {filteredTodos}
+        onError= {()=><TodosError/>}
+        onLoading= {()=><TodosLoading/>}
+        onEmptyTodos= {()=><TodosEmpty/>}
+        onEmptySearchTodos= {()=><EmptySearchTodos searchText={searchValue}/>}
+      >
+        {todo => (
+          <TodoItem key={todo.id} 
+            id={todo.id} 
+            text={todo.text} 
+            completed={todo.completed} 
+            onComplete={() => toggleCompleteTodo(todo.id)}
+            onDelete={() => deleteTodo(todo.id)}
+          />
+        )}
+      </TodoList>
 
       
       

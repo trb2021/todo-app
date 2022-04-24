@@ -11,6 +11,9 @@ import TodoFooter from "../TodoFooter/TodoFooter";
 import TodoCounter from "../TodoCounter/TodoCounter";
 import TodoFilter from "../TodoFilter/TodoFilter";
 import "./App.css";
+import TodosError from '../TodosError/TodosError';
+import TodosLoading from '../TodosLoading/TodosLoading';
+import TodosEmpty from '../TodosEmpty/TodosEmpty';
 
 
 function App() {
@@ -38,10 +41,31 @@ function App() {
     <>
       <TodoHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode }/>
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
-      <TodoList>
-        {error && <p className="message">Hubo un error, lo sentimos...</p>}
-        {loading && <p className="message">Estamos cargando, no desesperes...</p>}
-        {(!loading && !searchedTodos.length) && <p className="message">Crea tu primer ToDo...</p>}
+      
+      <TodoList 
+        error = {error}
+        loading = {loading}
+        filteredTodos = {filteredTodos}
+        onError= {()=><TodosError/>}
+        onLoading= {()=><TodosLoading/>}
+        onEmptyTodos= {()=><TodosEmpty/>}
+        render={todo => (
+          <TodoItem key={todo.id} 
+                    id={todo.id} 
+                    text={todo.text} 
+                    completed={todo.completed} 
+                    onComplete={() => toggleCompleteTodo(todo.id)}
+                    onDelete={() => deleteTodo(todo.id)}
+                    />
+        )}
+      />
+
+      
+      
+      {/* <TodoList>
+        {error && <TodosError />}
+        {loading && <TodosLoading />}
+        {(!loading && !searchedTodos.length) && <TodosEmpty />}
 
         {filteredTodos.map(todo=>(
           <TodoItem key={todo.id} 
@@ -52,7 +76,7 @@ function App() {
                     onDelete={() => deleteTodo(todo.id)}
                     />
         ))}
-      </TodoList>
+      </TodoList> */}
       <TodoFooter>
         <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos}/>
         <TodoFilter setFilterTodo={setFilterTodo} deleteCompletedTodos={deleteCompletedTodos}/>

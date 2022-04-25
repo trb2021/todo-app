@@ -1,9 +1,9 @@
 import React from "react";
 import './TodoCounter.css';
 
-function TodoCounter ({totalTodos, completedTodos}) {
+function TodoCounter ({totalTodos, completedTodos, loading}) {
     return (
-           <p className="corner">Restan {totalTodos - completedTodos} de {totalTodos} TODOs</p>           
+           <p className={`corner ${!!loading && "TodoCounter--loading"}`} >Restan {totalTodos - completedTodos} de {totalTodos} TODOs</p>           
     )
 }
 

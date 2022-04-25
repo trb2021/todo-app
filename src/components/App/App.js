@@ -41,7 +41,7 @@ function App() {
   return (
     <>
       <TodoHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode }/>
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} loading={loading}/>
       
       {/* <TodoList 
         error = {error}
@@ -102,7 +102,7 @@ function App() {
         ))}
       </TodoList> */}
       <TodoFooter>
-        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos}/>
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} loading={loading}/>
         <TodoFilter setFilterTodo={setFilterTodo} deleteCompletedTodos={deleteCompletedTodos}/>
       </TodoFooter>
        {!!openModal && (

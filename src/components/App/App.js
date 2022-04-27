@@ -41,28 +41,12 @@ function App() {
   return (
     <>
       <TodoHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode }/>
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} loading={loading}/>
+      <TodoSearch 
+        searchValue={searchValue} 
+        setSearchValue={setSearchValue} 
+        loading={loading}
+      />
       
-      {/* <TodoList 
-        error = {error}
-        loading = {loading}
-        totalTodos = {totalTodos}
-        filteredTodos = {filteredTodos}
-        onError= {()=><TodosError/>}
-        onLoading= {()=><TodosLoading/>}
-        onEmptyTodos= {()=><TodosEmpty/>}
-        onEmptySearchTodos= {()=><EmptySearchTodos searchText={searchValue}/>}
-        render={todo => (
-          <TodoItem key={todo.id} 
-                    id={todo.id} 
-                    text={todo.text} 
-                    completed={todo.completed} 
-                    onComplete={() => toggleCompleteTodo(todo.id)}
-                    onDelete={() => deleteTodo(todo.id)}
-                    />
-        )}
-      /> */}
-
       <TodoList
         error = {error}
         loading = {loading}
@@ -83,26 +67,13 @@ function App() {
           />
         )}
       </TodoList>
-
       
-      
-      {/* <TodoList>
-        {error && <TodosError />}
-        {loading && <TodosLoading />}
-        {(!loading && !searchedTodos.length) && <TodosEmpty />}
-
-        {filteredTodos.map(todo=>(
-          <TodoItem key={todo.id} 
-                    id={todo.id} 
-                    text={todo.text} 
-                    completed={todo.completed} 
-                    onComplete={() => toggleCompleteTodo(todo.id)}
-                    onDelete={() => deleteTodo(todo.id)}
-                    />
-        ))}
-      </TodoList> */}
-      <TodoFooter>
-        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} loading={loading}/>
+      <TodoFooter loading={loading}>
+        <TodoCounter 
+          totalTodos={totalTodos} 
+          completedTodos={completedTodos} 
+          //loading={loading}
+        />
         <TodoFilter setFilterTodo={setFilterTodo} deleteCompletedTodos={deleteCompletedTodos}/>
       </TodoFooter>
        {!!openModal && (

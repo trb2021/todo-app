@@ -1,10 +1,14 @@
 import React from "react";
 import './TodoFooter.css';
 
-function TodoFooter({ children }) {
+function TodoFooter({ children, loading }) {
     return(
         <div className="TodoFooter card">
-            { children }
+            {  
+                React.Children
+                    .toArray(children)
+                    .map(child => React.cloneElement(child, {loading}))
+            }
         </div>
     );
 }
